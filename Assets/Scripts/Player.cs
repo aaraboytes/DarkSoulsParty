@@ -68,12 +68,12 @@ public class Player : MonoBehaviour {
 
 		}*/
 		//----------------------------------------------------------
+	}
+	void FixedUpdate(){
 		//-----------------Movement---------------------------------
 		if (isGrounded ()) {
 			jumping = false;
 		}
-	}
-	void FixedUpdate(){
 		//Delta time
 		float deltaTime = Time.deltaTime;
 		//Horizontal
@@ -95,6 +95,7 @@ public class Player : MonoBehaviour {
 			playerSprite.transform.localScale = localSpriteScale;
 		}
 		anim.SetFloat("velocity",Mathf.Abs(player.velocity.x)+Mathf.Abs(player.velocity.y)); 
+		anim.SetBool ("jump", jumping);
 	}
 	bool isGrounded(){
 		return Physics2D.OverlapCircle(groundChecker.position,groundCheckerRadius,layerMask);	

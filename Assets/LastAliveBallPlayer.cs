@@ -1,31 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LastAlivePlayer : MonoBehaviour {
-	public List<Player> players = new List<Player>();
+public class LastAliveBallPlayer : MonoBehaviour {
+	public List<BallController> players = new List<BallController>();
 	public string winnerScene;
 	bool gameOver = false;
 	// Use this for initialization
 	void Start () {
 		gameOver = false;
-		Player[] findPlayers = FindObjectsOfType<Player> ();
+		BallController[] findPlayers = FindObjectsOfType<BallController> ();
 		players.Clear ();
 		for (int i = 0; i < findPlayers.Length; i++) {
 			players.Add (findPlayers [i]);
 		}
-		foreach(Player p in players){
+		foreach(BallController p in players){
 			if (!p.isActiveAndEnabled) {
 				players.Remove (p);
 			}
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (players.Count > 1) {
-			foreach (Player p in players) {
+			foreach (BallController p in players) {
 				if (!p.alive) {
 					players.Remove (p);
 				}
@@ -34,7 +33,7 @@ public class LastAlivePlayer : MonoBehaviour {
 			if (!gameOver) {
 				string prefix = "";
 				Transform playerTransform = this.transform;
-				foreach (Player p in players) {
+				foreach (BallController p in players) {
 					prefix = p.prefixInput;
 					playerTransform = p.transform;
 				}

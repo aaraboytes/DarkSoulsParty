@@ -13,10 +13,8 @@ public class CameraEffects : MonoBehaviour {
 	void Start(){
 		winnerText = GameObject.FindGameObjectWithTag ("WinnerText");
 		winnerText.gameObject.SetActive (false);
-		Time.timeScale = 1;
 	}
 	public void FocusOnWinner(Transform player){
-		Time.timeScale = 0;
 		transform.position = player.position - (Vector3.forward * offset); 
 		winnerText.GetComponent<Text>().text = player.GetComponent<Player> ().prefixInput + " wins";
 		winnerText.gameObject.SetActive (true);
