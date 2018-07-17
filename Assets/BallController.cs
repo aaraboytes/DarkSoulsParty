@@ -23,11 +23,15 @@ public class BallController : MonoBehaviour {
 		horizontal = Input.GetAxis (prefixInput + "Horizontal");
 		sphere.velocity = new Vector3 (horizontal * speed, sphere.velocity.y, vertical * speed);
 	}
-	void OnTriggerEnter(Collider other){
-		if (other.CompareTag ("Player")) {
-			Vector3 knockBackDir = (other.transform.position - transform.position).normalized;
-			sphere.AddForce (knockBackDir * knockBackForce + Vector3.up * 5.0f);
-			Debug.Log ((knockBackDir * knockBackForce));
+	void OnCollisionEnter(Collision collision){
+		foreach (ContactPoint contact in collision.contacts) {
+			if (contact.otherCollider.gameObject.CompareTag("Player")) {
+				/*Debug.Log (contact.otherCollider);
+				Vector3 knockBackDir = (contact.point - transform.position).normalized;
+				sphere.AddForce (knockBackDir * knockBackForce + Vector3.up * 5.0f);
+				Debug.Log ((knockBackDir * knockBackForce));*/
+				sphere.AddForce (((contact.point - transform.position) * -1 * knockBackForce) + Vector3.up * 5.0f, ForceMode.Acceleration);
+			}
 		}
 	}
 	public void MakeDamage(int damage){

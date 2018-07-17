@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class WinnerManager : MonoBehaviour {
+	[Header("Scores in screen")]
 	[SerializeField]
 	public Text pos1;
 	public Text pos2;
 	public Text pos3;
 	public Text pos4;
-
 	List<float> scores = new List<float> ();
 	List<string> names = new List<string>();
+	[Header("Scene changing")]
+	public List<string> scenes = new List<string>();
+	public float timeToChangeScene;
+	float timer = 0;
+
 	void Start(){
 		scores = GameManager._instance.GetScores();
 		GameManager._instance.ResetTakenNamesList ();
@@ -51,5 +57,13 @@ public class WinnerManager : MonoBehaviour {
 		pos2.text = slots [1].player + "\t\t" + slots [1].score;
 		pos3.text = slots [2].player + "\t\t" + slots [2].score;
 		pos4.text = slots [3].player + "\t\t" + slots [3].score;
+	}
+
+	void Update(){
+		timer += Time.deltaTime;
+		if (timer > timeToChangeScene) {
+			//int randScene = Random.Range (0, scenes.Count - 1);
+			//SceneManager.LoadScene (scenes [randScene]);
+		}
 	}
 }

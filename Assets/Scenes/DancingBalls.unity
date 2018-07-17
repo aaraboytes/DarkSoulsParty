@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 216800649}
   - component: {fileID: 216800646}
   - component: {fileID: 216800648}
-  - component: {fileID: 216800652}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
@@ -229,20 +228,8 @@ MonoBehaviour:
   prefixInput: 
   speed: 5
   playerNumber: 4
-  knockBackForce: 1000
+  knockBackForce: 200
   alive: 1
---- !u!135 &216800652
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 216800645}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &308495687
 Prefab:
   m_ObjectHideFlags: 0
@@ -749,7 +736,6 @@ GameObject:
   - component: {fileID: 1058726844}
   - component: {fileID: 1058726841}
   - component: {fileID: 1058726843}
-  - component: {fileID: 1058726846}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: Player
@@ -855,18 +841,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1058726846
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1058726839}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1236454136
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +854,6 @@ GameObject:
   - component: {fileID: 1236454141}
   - component: {fileID: 1236454138}
   - component: {fileID: 1236454140}
-  - component: {fileID: 1236454143}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: Player
@@ -986,18 +959,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1236454143
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1236454136}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1613952142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1037,6 @@ GameObject:
   - component: {fileID: 2089507316}
   - component: {fileID: 2089507313}
   - component: {fileID: 2089507315}
-  - component: {fileID: 2089507318}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Player
@@ -1182,15 +1142,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2089507318
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2089507311}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55
-  m_Center: {x: 0, y: 0, z: 0}
