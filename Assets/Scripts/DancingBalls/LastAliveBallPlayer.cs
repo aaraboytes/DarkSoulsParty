@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LastAliveBallPlayer : MonoBehaviour {
 	public List<BallController> players = new List<BallController>();
 	public string winnerScene;
+	public int extraScore;
 	bool gameOver = false;
 	// Use this for initialization
 	void Start () {
@@ -35,12 +36,12 @@ public class LastAliveBallPlayer : MonoBehaviour {
 				Transform playerTransform = this.transform;
 				foreach (BallController p in players) {
 					prefix = p.prefixInput;
-					playerTransform = p.transform;
+					playerTransform = p.gameObject.transform;
 				}
-				GameManager._instance.IncreaseScore (10, prefix);
+				GameManager._instance.IncreaseScore (extraScore, prefix);
 				GameManager._instance.SetLastWinner (prefix);
 				Debug.Log ("Winner" + prefix);
-				CameraEffects._instance.FocusOnWinner (playerTransform);
+				CameraEffects3D._instance.setTarget (playerTransform);
 				Invoke ("GoToWinnerScene", 2.5f);
 				gameOver = true;
 			}

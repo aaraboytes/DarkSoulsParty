@@ -472,12 +472,12 @@ Prefab:
     - target: {fileID: 224627868336244690, guid: 96b5c3e09ef76a648883f747a2966fda,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 283.5
       objectReference: {fileID: 0}
     - target: {fileID: 224627868336244690, guid: 96b5c3e09ef76a648883f747a2966fda,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 159.5
       objectReference: {fileID: 0}
     - target: {fileID: 224627868336244690, guid: 96b5c3e09ef76a648883f747a2966fda,
         type: 2}
@@ -576,7 +576,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1456311183048802, guid: 96b5c3e09ef76a648883f747a2966fda, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96b5c3e09ef76a648883f747a2966fda, type: 2}
@@ -619,6 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   winnerScene: Winner
+  extraScore: 0
 --- !u!4 &387997103
 Transform:
   m_ObjectHideFlags: 0
@@ -1209,10 +1210,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 873856645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8524a94c2b80c44b9001434f2e24567, type: 3}
+  m_Script: {fileID: 11500000, guid: d393e0cc351b1c64da9e4cd3633f4d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 8
+  yOffset: 3.3
+  zOffset: -6
+  speed: 0.03
   winnerText: {fileID: 324110782}
 --- !u!4 &915279145 stripped
 Transform:

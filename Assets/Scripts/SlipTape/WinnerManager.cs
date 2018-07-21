@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -26,7 +25,6 @@ public class WinnerManager : MonoBehaviour {
 	}
 	[SerializeField]
 	List<ScoreSlot> slots = new List<ScoreSlot>();
-	[Serializable]
 	class ScoreSlot{
 		public string player;
 		public float score;
@@ -62,8 +60,8 @@ public class WinnerManager : MonoBehaviour {
 	void Update(){
 		timer += Time.deltaTime;
 		if (timer > timeToChangeScene) {
-			//int randScene = Random.Range (0, scenes.Count - 1);
-			//SceneManager.LoadScene (scenes [randScene]);
+			int randScene = Random.Range (0, scenes.Count - 1);
+			SceneManager.LoadScene (scenes [randScene]);
 		}
 	}
 }

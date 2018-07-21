@@ -26,7 +26,7 @@ public class FollowPointManager : MonoBehaviour {
 	}
 	public void Goal(Player currentPlayer){
 		if(!goaledPlayers.Contains(currentPlayer))goaledPlayers.Add (currentPlayer);
-		if (goaledPlayers.Count == players.Count - 1) {
+		if (goaledPlayers.Count >= players.Count - 2) {
 			foreach (Player p in players) {
 				if (!goaledPlayers.Contains (p)) {
 					p.MakeDamage (100, transform.position);
@@ -47,7 +47,7 @@ public class FollowPointManager : MonoBehaviour {
 	}
 	void MoveFollowPoint(){
 		followPoint.SetActive (false);
-		followPoint.transform.position = spawnPoints [Random.Range (0, spawnPoints.Count - 1)].position;
+		followPoint.transform.position = spawnPoints [Random.Range (0, spawnPoints.Count - 1)].localPosition;
 		followPoint.SetActive (true);
 	}
 }

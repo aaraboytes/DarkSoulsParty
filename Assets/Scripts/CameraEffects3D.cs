@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class CameraEffects : MonoBehaviour {
-	public static CameraEffects _instance;
+public class CameraEffects3D : MonoBehaviour {
+	public static CameraEffects3D _instance;
 	Transform target = null;
-	public float yOffset = -5f,zOffset = 1f;
-	public float speed = 0.03f;
+	public float yOffset;
+	public float zOffset;
+	public float speed;
 	public GameObject winnerText;
+
 	void Awake(){
-		_instance = this;
+		if (_instance == null)
+			_instance = this;
 	}
 	void Start(){
 		winnerText = GameObject.FindGameObjectWithTag ("WinnerText");
@@ -22,9 +25,8 @@ public class CameraEffects : MonoBehaviour {
 			winnerText.gameObject.SetActive (true);
 		}
 	}
-	public void FocusOnWinner(Transform player){
-		target = player;
-		winnerText.GetComponent<Text>().text = player.GetComponent<Player> ().prefixInput + " wins";
-		winnerText.gameObject.SetActive (true);
+	public void setTarget(Transform _target){
+		Debug.Log ("Player setted");
+		target = _target;
 	}
 }
