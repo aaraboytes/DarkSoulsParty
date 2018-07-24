@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Rocks 03 Mat
   m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
@@ -29,5 +29,5 @@ Material:
     m_Floats:
     - _Shininess: 0.08314258
     m_Colors:
-    - _Color: {r: 0.50735295, g: 0.31421995, b: 0.24248485, a: 1}
-    - _SpecColor: {r: 0.6764706, g: 0.412057, b: 0.20891003, a: 1}
+    - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

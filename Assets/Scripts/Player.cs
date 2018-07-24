@@ -101,16 +101,18 @@ public class Player : MonoBehaviour {
 		return Physics2D.OverlapCircle(groundChecker.position,groundCheckerRadius,layerMask);	
 	}
 	public void MakeDamage(int damage,Vector2 damageHit){
-		currentLife -= damage;
-		if (currentLife <= 0) {
-			bloodPool.Recycle (player.position,Quaternion.identity);
-			alive = false;
-			gameObject.SetActive(false);
-		} else {
-			audio.clip = damageSound;
-			audio.Play ();
-			Vector2 knockBackDir = player.position - damageHit;
-			player.AddForce (knockBackDir * knockBackForce);
+		if (alive) {
+			currentLife -= damage;
+			if (currentLife <= 0) {
+				bloodPool.Recycle (player.position, Quaternion.identity);
+				alive = false;
+				gameObject.SetActive (false);
+			} else {
+				audio.clip = damageSound;
+				audio.Play ();
+				Vector2 knockBackDir = player.position - damageHit;
+				player.AddForce (knockBackDir * knockBackForce);
+			}
 		}
 	}
 }
