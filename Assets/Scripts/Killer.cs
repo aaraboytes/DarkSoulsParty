@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Killer : MonoBehaviour {
-	void Start(){
-	}
+	public bool startKilling = false;
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.CompareTag ("Player")) {
-			Player player = other.GetComponent<Player> ();
-			player.MakeDamage (100,transform.position);
+			if (startKilling) {
+				Player player = other.GetComponent<Player> ();
+				player.MakeDamage (100, transform.position);
+			}
 		}
 	}
 }

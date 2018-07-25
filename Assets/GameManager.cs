@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager _instance;
 	[SerializeField]
 	float scoreP1, scoreP2, scoreP3, scoreP4, scorePC;
 	string lastWinner;
+	//Num of players playing an num of games to be played
+	int numOfPlayers = 4;
+	int numOfGames = 1;
+
 	List<string> names = new List<string> ();
 	void Awake(){
 		if (_instance == null) {
@@ -15,6 +20,33 @@ public class GameManager : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		DontDestroyOnLoad (this);
+	}
+	public void setPlayersOnScene(){
+		Player[] players = GameObject.FindObjectsOfType<Player> ();
+		int currentNumOfPlayers = 1;
+		foreach (Player p in players) {
+			Debug.Log ("Setting up player " + p.gameObject.name + "there are " + currentNumOfPlayers + " on scene");
+			p.setPlayerNum (currentNumOfPlayers);
+
+			if (currentNumOfPlayers > numOfPlayers) {
+				p.gameObject.SetActive (false);
+			} else {
+				p.gameObject.SetActive (true);
+				currentNumOfPlayers++;
+			}
+		}
+	}
+	public void setBallsOnScene(){
+		BallController[] players = GameObject.FindObjectsOfType<BallController> ();
+		int currentNumOfPlayers = 1;
+		foreach (BallController p in players) {
+			p.setPlayerNum (currentNumOfPlayers);
+			if (currentNumOfPlayers > numOfPlayers) {
+				p.gameObject.SetActive (false);
+			} else
+				p.gameObject.SetActive (true);
+			currentNumOfPlayers++;
+		}
 	}
 	public List<float> GetScores(){
 		List<float> scores = new List<float> ();
@@ -64,5 +96,11 @@ public class GameManager : MonoBehaviour {
 			player = "PC";
 		names.Add (player);
 		return player;
+	}
+
+	public void setGamePrefs(int _numOfPlayers,int _numOfGames){
+		numOfGames = _numOfGames;
+		numOfPlayers = _numOfPlayers;
+		Debug.Log ("Setted numOfGames to " + numOfGames + " and numOfPlayers " + numOfPlayers);
 	}
 }

@@ -97,6 +97,23 @@ public class Player : MonoBehaviour {
 		anim.SetFloat("velocity",Mathf.Abs(player.velocity.x)+Mathf.Abs(player.velocity.y)); 
 		anim.SetBool ("jump", jumping);
 	}
+	public void setPlayerNum(int numOfPlayer){
+		switch(numOfPlayer){
+		case 1:
+			playerNumber = InputController.PlayerNumber.One;
+			break;
+		case 2:
+			playerNumber = InputController.PlayerNumber.Two;
+			break;
+		case 3:
+			playerNumber = InputController.PlayerNumber.Three;
+			break;
+		case 4:
+			playerNumber = InputController.PlayerNumber.Four;
+			break;
+		}
+		prefixInput = InputController.GetPrefix (playerNumber);
+	}
 	bool isGrounded(){
 		return Physics2D.OverlapCircle(groundChecker.position,groundCheckerRadius,layerMask);	
 	}

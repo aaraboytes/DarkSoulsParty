@@ -23,6 +23,23 @@ public class BallController : MonoBehaviour {
 		horizontal = Input.GetAxis (prefixInput + "Horizontal");
 		sphere.velocity = new Vector3 (horizontal * speed, sphere.velocity.y, vertical * speed);
 	}
+	public void setPlayerNum(int numOfPlayer){
+		switch(numOfPlayer){
+		case 1:
+			playerNumber = InputController.PlayerNumber.One;
+			break;
+		case 2:
+			playerNumber = InputController.PlayerNumber.Two;
+			break;
+		case 3:
+			playerNumber = InputController.PlayerNumber.Three;
+			break;
+		case 4:
+			playerNumber = InputController.PlayerNumber.Four;
+			break;
+		}
+		prefixInput = InputController.GetPrefix (playerNumber);
+	}
 	void OnCollisionEnter(Collision collision){
 		foreach (ContactPoint contact in collision.contacts) {
 			if (contact.otherCollider.gameObject.CompareTag("Player")) {

@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74ad1cfdef93e9448037d22c33a04e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToWin: 30
+  timeToWin: 20
   scoreToWinner: 50
   winnerScene: Winner
   p1BlockSlider: {fileID: 0}
@@ -59,3 +59,7 @@ MonoBehaviour:
   p3BlockSlider: {fileID: 0}
   p4BlockSlider: {fileID: 0}
   timerText: {fileID: 0}
+  p1Blocks: []
+  p2Blocks: []
+  p3Blocks: []
+  p4Blocks: []

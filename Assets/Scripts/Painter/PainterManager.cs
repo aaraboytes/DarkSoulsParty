@@ -25,6 +25,9 @@ public class PainterManager : MonoBehaviour {
 	void Awake(){
 		_instance = this;
 	}
+	void Start(){
+		GameManager._instance.setPlayersOnScene ();
+	}
 	void Update(){
 		timer += Time.deltaTime;
 		timerText.text = ((int)timeToWin - (int)timer).ToString ();

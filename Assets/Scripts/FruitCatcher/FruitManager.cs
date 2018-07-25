@@ -18,6 +18,7 @@ public class FruitManager : MonoBehaviour {
 	}
 	void Start(){
 		fruits = new int[5];
+		GameManager._instance.setPlayersOnScene ();
 	}
 	void Update(){
 		timer += Time.deltaTime;

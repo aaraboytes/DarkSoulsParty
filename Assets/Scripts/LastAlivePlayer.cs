@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class LastAlivePlayer : MonoBehaviour {
 	public List<Player> players = new List<Player>();
 	public string winnerScene;
+	public int scoreToWinner = 100;
 	bool gameOver = false;
 	// Use this for initialization
 	void Start () {
 		gameOver = false;
+		GameManager._instance.setPlayersOnScene ();
 		Player[] findPlayers = FindObjectsOfType<Player> ();
 		players.Clear ();
 		for (int i = 0; i < findPlayers.Length; i++) {
@@ -38,7 +40,7 @@ public class LastAlivePlayer : MonoBehaviour {
 					prefix = p.prefixInput;
 					playerTransform = p.transform;
 				}
-				GameManager._instance.IncreaseScore (10, prefix);
+				GameManager._instance.IncreaseScore (scoreToWinner, prefix);
 				GameManager._instance.SetLastWinner (prefix);
 				Debug.Log ("Winner" + prefix);
 				CameraEffects._instance.FocusOnWinner (playerTransform);

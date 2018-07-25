@@ -31,6 +31,12 @@ public class CrownManager : MonoBehaviour {
 		_instance = this;
 	}
 	void Start(){
+		GameManager._instance.setPlayersOnScene ();
+		Player[] findPlayers = FindObjectsOfType<Player> ();
+		players.Clear ();
+		for (int i = 0; i < findPlayers.Length; i++) {
+			players.Add (findPlayers [i]);
+		}
 		foreach (Player p in players) {
 			if (!p.isActiveAndEnabled) {
 				players.Remove (p);

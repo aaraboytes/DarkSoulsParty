@@ -10,6 +10,7 @@ public class LastAliveBallPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameOver = false;
+		GameManager._instance.setBallsOnScene ();
 		BallController[] findPlayers = FindObjectsOfType<BallController> ();
 		players.Clear ();
 		for (int i = 0; i < findPlayers.Length; i++) {

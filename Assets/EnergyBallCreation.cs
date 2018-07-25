@@ -9,6 +9,8 @@ public class EnergyBallCreation : MonoBehaviour {
 	[SerializeField]
 	private Pool energyBalls;
 	public float timeToDamage = 0.2f;
+	float timer = 0;
+	private GameObject currentEnergyBall;
 	void Start(){
 		body = GetComponent<Rigidbody2D> ();
 	}
@@ -17,23 +19,21 @@ public class EnergyBallCreation : MonoBehaviour {
 			StartCoroutine(KnockBack (other.transform.position, 0.2f));
 			if (!other.gameObject.GetComponent<EnergyBallCreation> ().ballSpawned) {
 				Vector3 pos = new Vector3 (((other.transform.position.x - transform.position.x)/ 2) + transform.position.x, transform.position.y, 0f);
-				GameObject energyBall = energyBalls.Recycle (pos, Quaternion.identity);
-				energyBall.GetComponent<Killer> ().enabled = false;
+				currentEnergyBall = energyBalls.Recycle (pos, Quaternion.identity);
 				ballSpawned = true;
-				StartCoroutine(MakeDamage(timeToDamage,energyBall));
 			}
 		}
 	}
-	IEnumerator MakeDamage(float time,GameObject ball){
-		float timer = 0;
-		while (timer < time) {
+	void Update(){
+		if (ballSpawned) {
 			timer += Time.deltaTime;
+			if (timer > timeToDamage) {
+				currentEnergyBall.GetComponent<Killer> ().startKilling = true;
+				currentEnergyBall = null;
+				ballSpawned = false;
+				timer = 0;
+			}
 		}
-		if (timer >= time) {
-			ballSpawned = false;
-			ball.GetComponent<Killer> ().enabled = true;
-		}
-		yield return 0;
 	}
 	IEnumerator KnockBack(Vector3 collisionPoint,float time){
 		float timer = 0;

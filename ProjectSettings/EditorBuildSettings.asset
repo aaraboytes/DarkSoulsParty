@@ -20,4 +20,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Winner.unity
     guid: d900861a3a6915c4ab03bd0576ec73a3
+  - enabled: 1
+    path: Assets/Scenes/Crown.unity
+    guid: e10d061e04dbc4e4196477bfc97f52c0
+  - enabled: 1
+    path: Assets/Scenes/DancingBalls.unity
+    guid: f036362f617050b4183975cd310732a9
+  - enabled: 1
+    path: Assets/Scenes/EnergyBall.unity
+    guid: a62a070aae605e146aaa11788d566f8d
+  - enabled: 1
+    path: Assets/Scenes/FollowThePoint.unity
+    guid: d437ad6d354cfac40ae8ca741c99f9c4
+  - enabled: 1
+    path: Assets/Scenes/Light.unity
+    guid: 4cb6c43b1a23a084e863fa0ea5aec768
+  - enabled: 1
+    path: Assets/Scenes/Painter.unity
+    guid: a3f5891c0031ef246917f515c194e6e8
+  - enabled: 1
+    path: Assets/Scenes/SlipTape.unity
+    guid: f1d337c7dcc976445a5be61a4daa6645
   m_configObjects: {}

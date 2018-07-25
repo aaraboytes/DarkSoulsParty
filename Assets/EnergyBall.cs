@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnegyBall : MonoBehaviour {
+public class EnergyBall : MonoBehaviour {
 	public float incrementSize;
 	void Update(){
 		transform.localScale = transform.localScale + new Vector3 (incrementSize, incrementSize, incrementSize);
